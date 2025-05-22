@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FUSION OF MUBIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: black;
+        }
+        .container {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .header {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+        }
+        .server-status {
+            background-color: green;
+            color: white;
+            padding: 5px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .sureshot-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .sureshot {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .number-display {
+            background-color: green;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">THE FUSION OF MUBIN</div>
+        
+        <div>
+            <img src="https://via.placeholder.com/50" alt="91 Club Logo">
+            <h2>91 Club - Official</h2>
+        </div>
+        
+        <div class="server-status">Connected</div>
+
+        <div>
+            <label>PERIOD NO: </label>
+            <input type="text" id="periodNo" placeholder="Enter period no">
+        </div>
+
+        <div class="sureshot-container">
+            <div class="sureshot" onclick="generateNumber()">SURESHOT</div>
+            <div class="number-display" id="displayNumber">?</div>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+    </div>
+
+    <script>
+        function generateNumber() {
+            let periodNumber = document.getElementById("periodNo").value.trim();
+            let errorMessage = document.getElementById("errorMessage");
+            let displayNumber = document.getElementById("displayNumber");
+
+            if (periodNumber === "") {
+                errorMessage.innerText = "First enter period.";
+                displayNumber.innerText = "?";
+            } else {
+                errorMessage.innerText = "";
+                let randomNumber = Math.floor(Math.random() * 10);
+                displayNumber.innerText = randomNumber;
+            }
+        }
+    </script>
+
+</body>
+</html>
